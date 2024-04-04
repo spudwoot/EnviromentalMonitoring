@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="47274df1c30102108f7f564ed40131e4" label="Enviromental Measurments" max_length="40" name="x_1130443_enviro_0_enviromental_measurments" type="collection">
         <element label="Humidity" max_length="40" name="humidity" type="float"/>
+        <element label="MAC Address" max_length="40" name="mac_address" type="string"/>
         <element label="Monitor CI" max_length="32" name="monitor_ci" reference="cmdb_ci_monitoring_hardware" type="reference"/>
         <element label="Temperature" max_length="40" name="temperature" type="float"/>
         <element label="Water Alarm" max_length="255" name="water_alarm" type="boolean"/>
