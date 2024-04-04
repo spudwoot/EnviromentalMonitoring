@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="cmdb_identifier">
+    <cmdb_identifier action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_to>cmdb_ci_monitoring_hardware</applies_to>
+        <description>Identify new monitoring</description>
+        <independent>true</independent>
+        <name>Monitoring Equipment rule</name>
+        <sys_class_name>cmdb_identifier</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-01 17:02:05</sys_created_on>
+        <sys_id>f32f67a5c3d102108f7f564ed4013102</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cmdb_ci_monitoring_hardware</sys_name>
+        <sys_package display_value="Enviromental Monitoring" source="x_1130443_enviro_0">09a6c1f1c30102108f7f564ed40131a6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Enviromental Monitoring">09a6c1f1c30102108f7f564ed40131a6</sys_scope>
+        <sys_update_name>cmdb_identifier_f32f67a5c3d102108f7f564ed4013102</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-01 17:02:05</sys_updated_on>
+    </cmdb_identifier>
+</record_update>
