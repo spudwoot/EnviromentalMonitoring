@@ -5,14 +5,25 @@
         <consumes_customized>false</consumes_customized>
         <default_operation_uri/>
         <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
-        <http_method>POST</http_method>
-        <name>Add Monitoring Entry</name>
+        <http_method>GET</http_method>
+        <name>Pull Configuration info</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
 
-    // implement resource here
 
+response.setHeader('Content-Type', 'application/json');	
+response.setStatus(200);
+var writer = response.getStreamWriter();
+
+var timerProp = gs.getProperty("x_1130443_enviro_0.Monitor Refresh Time");
+var response_body ={
+"refresh": timerProp};
+	
+
+	
+	writer.writeString(JSON.stringify(response_body));
+	
 })(request, response);]]></operation_script>
-        <operation_uri>/api/x_1130443_enviro_0/enviromental_monitoring</operation_uri>
+        <operation_uri>/api/x_1130443_enviro_0/monitoring_api</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
         <relative_path>/</relative_path>
@@ -23,17 +34,17 @@
         <short_description/>
         <sys_class_name>sys_ws_operation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2024-04-01 16:54:08</sys_created_on>
-        <sys_id>e94ce3e1c3d102108f7f564ed4013175</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Add Monitoring Entry</sys_name>
+        <sys_created_on>2024-04-15 13:33:18</sys_created_on>
+        <sys_id>a4350b02c32102108f7f564ed40131d7</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Pull Configuration info</sys_name>
         <sys_package display_value="Enviromental Monitoring" source="x_1130443_enviro_0">09a6c1f1c30102108f7f564ed40131a6</sys_package>
-        <sys_policy/>
+        <sys_policy>read</sys_policy>
         <sys_scope display_value="Enviromental Monitoring">09a6c1f1c30102108f7f564ed40131a6</sys_scope>
-        <sys_update_name>sys_ws_operation_e94ce3e1c3d102108f7f564ed4013175</sys_update_name>
+        <sys_update_name>sys_ws_operation_a4350b02c32102108f7f564ed40131d7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-01 16:54:08</sys_updated_on>
-        <web_service_definition display_value="Enviromental Monitoring">e0fb2fa1c3d102108f7f564ed40131b4</web_service_definition>
+        <sys_updated_on>2024-04-17 19:44:27</sys_updated_on>
+        <web_service_definition display_value="Monitoring API">de244386c32102108f7f564ed40131a9</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
 </record_update>

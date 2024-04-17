@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>post to table</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+var mac;
+var temp;
+var hum;
+var wat;
+var postTable;
+var returnS;
+var requestBody = request.body;
+var requestString = requestBody.dataString;
+
+var result = JSON.parse(requestString);
+
+
+	mac = result.mac_address; // Device Serial Number
+	hum = result.humidity; // Device Serial Number
+	temp = result.temperature; // Device Serial Number
+	wat = result.water_alarm; // Device Serial Number
+	postTable="x_1130443_enviro_0_enviromental_measurments";//table to post info
+if(!gs.tableExists('postTable')) {
+var record = new GlideRecord(postTable);// Staging table name
+record.initialize();
+record.mac_address = mac;
+record.humidity = hum;
+record.temperature = temp;
+record.water_alarm = wat;
+record.insert();
+} else {
+returnS = "Table does not exist on server";	
+}
+
+
+
+return {
+"response": returnS 
+};
+
+})(request, response);
+
+
+]]></operation_script>
+        <operation_uri>/api/x_1130443_enviro_0/monitoring_api</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-15 14:43:22</sys_created_on>
+        <sys_id>26141bc2c36102108f7f564ed401311e</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_name>post to table</sys_name>
+        <sys_package display_value="Enviromental Monitoring" source="x_1130443_enviro_0">09a6c1f1c30102108f7f564ed40131a6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Enviromental Monitoring">09a6c1f1c30102108f7f564ed40131a6</sys_scope>
+        <sys_update_name>sys_ws_operation_26141bc2c36102108f7f564ed401311e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-16 16:51:08</sys_updated_on>
+        <web_service_definition display_value="Monitoring API">de244386c32102108f7f564ed40131a9</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
